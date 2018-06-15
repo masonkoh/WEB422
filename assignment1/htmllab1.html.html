@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+      div{
+          margin: 20px;
+          border: 1px solid grey;
+      }
+    </style>
+      <meta charset="utf-8">
+      <title>Add a tag at the beginning of the list item</title>
+  </head>
+  <body>
+
+    <div class="question1">
+        <oi>
+            <li>Frist element</li>
+            <li>Second element</li>
+            <li>Third element</li>
+          </oi>
+    </div>
+
+    <div class="question2">
+        <p>Name : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="inputBox1"></p>
+        <p>Student # : <input type="text" class="inputBox2"></p>
+    </div>
+    
+    <div class="question3">
+        <button class="q3button" type="button">Click Me!</button>
+    </div>
+    
+    <div class="question4">
+        Enter anything using keyboard:  <input type="text">
+    </div>
+
+    <div class="question5">
+      
+      <p>
+        ****GAME RULE****
+        <br> 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A random character is displayed and the user is supposed to type the same character in one second.
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If the punched character is correct, the next random character is displayed.
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Otherwise, the player is displayed a warning.
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The player will lose the game after 10 mistakes.
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After every 5 correct characters, the punch time is decreased by 0.1 second to make the game more difficult.
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The punch time should never get less than 0.4 seconds. 
+
+      </p>
+      <button class="q5gameStartButton" type="button">GAME START!</button>
+
+      <p class="q5randomChar"></p>
+
+      <form>
+          <input class="q5answerBox" type="text">
+
+          <input class="q5anwerSubmit" type="submit" value="Submit">
+      </form>
+    
+
+
+
+
+
+    </div>
+
+
+
+    <script>
+        // question1
+        $('li').each(function( index, elem ){
+          $( elem ).prepend( '<b>' + index + '</b>: ' );
+        });
+        // question2
+        $( ".inputBox1[type=text]" ).focus(function() {
+          $( this ).blur();
+        });
+        // question3
+        var lastt, tdiff;
+        $( ".q3button" ).click(function( event ) {  if (lastt) {
+          tdiff = event.timeStamp - lastt;
+          $( '.question3' ).append( "Time since last event: " + tdiff + "<br>" );
+          } 
+          else {
+            $( '.question3' ).append( "<br>Click again.<br>" );
+            }
+          lastt = event.timeStamp;
+        });
+        // question4
+        $( "input" ).on( "keydown", function(event) {
+          $( ".question4" ).append( event.type + ": " +  event.which );
+        });
+
+        // question5-1
+        function makeid() {
+          var text = "";
+          var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+          for (var i = 0; i < 1; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+          return text;
+        }
+        
+
+        $(document).ready(function() {
+          $(".q5gameStartButton").click(function(){
+              $(".q5randomChar").append("TYPE SAME CHARACTER IN ONE SEC!: ").append("'").append(makeid).append("'").append("<br>");
+          }); 
+        });
+
+        tempValue = $(".q5answerBox").val();
+        $(".tempP").append(tempValue);
+        
+
+        
+
+        // question5-2
+
+        // $(".question5").append(
+        //   countdown("2017/01/01", function(event) {
+        //   $(this).text(event.strftime('%D days %H:%M:%S'));
+        // }));
+
+        
+
+        
+
+        // var lastt, tdiff;
+        // $( "button" ).click(function( event ) {  if (lastt) {
+        //   tdiff = event.timeStamp - lastt;
+        //   $( '.question3' ).append( "Time since last event: " + tdiff + "<br>" );
+        //   } 
+        //   else {
+        //     $( '.question3' ).append( "<br>Click again.<br>" );
+        //     }
+        //   lastt = event.timeStamp;
+        // });
+        
+        
+
+        
+
+
+    </script>
+  </body>
+</html>
