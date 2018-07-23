@@ -1,5 +1,10 @@
 $(function(){
 
+    $(document).ready(function(){
+        console.log("I'M READY from main.js");
+    })
+
+    // main code start
     $("#teams-menu").on("click",function(event){
         event.preventDefault();
 
