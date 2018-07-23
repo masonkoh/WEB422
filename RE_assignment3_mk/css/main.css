@@ -1,0 +1,11 @@
+#data{
+    max-height:300px;
+    overflow-y: scroll;
+}
+
+#employee-search {
+    margin-bottom: 5px; }
+  
+  .outer-container {
+    padding: 30px; }
+  
