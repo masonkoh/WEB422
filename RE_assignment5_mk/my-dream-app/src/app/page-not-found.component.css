@@ -1,0 +1,17 @@
+#emoji{
+    font-size:400%;
+}
+p{
+    padding-top:30px;
+}
+.panel-body{
+    padding:100px 0px 200px 0px;
+    text-align: center;
+    font-size: 140%;
+}
+
+.panel-title{
+    font-size:400%;
+    padding:20px 10px;
+    text-align: center;
+}
