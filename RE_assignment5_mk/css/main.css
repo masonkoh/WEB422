@@ -1,0 +1,24 @@
+/* #data{
+    max-height:300px;
+    overflow-y: scroll;
+}
+
+#employee-search {
+    margin-bottom: 5px; }
+  
+  .outer-container {
+    padding: 30px; }
+   */
+
+   .ms-parent {
+    width: 100% !important;
+  }
+  
+  .ms-drop input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  
+  .ms-drop input[type="radio"] {
+    margin-right: 8px;
+  }
+  
