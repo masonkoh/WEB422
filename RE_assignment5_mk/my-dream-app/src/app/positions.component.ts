@@ -50,7 +50,7 @@ export class PositionsComponent implements OnInit, OnDestroy {
 //   ngOnInit() {
 //   }
 
-}
+
 
 
 
