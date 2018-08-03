@@ -1,3 +1,56 @@
-<p>
-  position works!
-</p>
+<div class="center">
+  <h2>Position: Position Name</h2>
+  <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non odio sed eros tristique bibendum.</p>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <form #f='ngForm' (ngSubmit)='onSubmit(f)'>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="PositionName">Position Name:</label>
+              <input #PositionName="ngModel" placeholder="Position Name" class="form-control" id="PositionName" type="text" name="PositionName" required [(ngModel)]="position.PositionName"/>
+
+
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="PositionDescription">Description:</label>
+              <textarea #PositionDescription="ngModel" placeholder="Position Description" class="form-control" id="PositionDescription" rows="5" name="PositionDescription" required [(ngModel)]="position.PositionDescription"></textarea>
+
+            </div>
+          </div>
+        </div>
+        <hr />
+        <a href="/positions" class="btn btn-warning pull-left">Return to Position List</a>
+        <input type="submit" class="btn btn-primary pull-right" value="Update Position" />
+        <br />
+        <br />
+      </form>
+    </div>
+  </div>
+<br />
+<div class="alert alert-success" *ngIf="successMessage">
+  <strong>Success!</strong> Position information was successfully updated.
+</div>
+
+<!-- 
+<div class="alert alert-success">
+  <strong>Success!</strong> Position: "Position Name" was successfully saved.
+</div> -->
+
+<div class="alert alert-danger" *ngIf="failMessage">
+  <strong>Error!</strong> Position: "Position Name" could not be saved.
+</div>
+
+<!-- <div class="alert alert-danger">
+  <strong>Error!</strong> Position: "Position Name" could not be saved.
+</div> -->
+
+
+</div>
+<br /><br />
