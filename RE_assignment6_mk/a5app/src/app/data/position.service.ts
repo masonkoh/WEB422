@@ -9,7 +9,7 @@ export class PositionService {
   constructor(private http: HttpClient) { }
 
   getPositions() : Observable<Position[]>{
-    return this.http.get<Position[]>("Your Teams API/positions");
+    return this.http.get<Position[]>("https://radiant-mesa-48727.herokuapp.com/positions");
   }
   
 }

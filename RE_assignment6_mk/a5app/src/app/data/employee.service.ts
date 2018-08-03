@@ -9,7 +9,7 @@ export class EmployeeService {
     constructor(private http: HttpClient) { }
 
     getEmployees(): Observable<Employee[]> {
-        return this.http.get<Employee[]>("Your Teams API/employees");
+        return this.http.get<Employee[]>("https://radiant-mesa-48727.herokuapp.com/employees");
     }
 
 }
