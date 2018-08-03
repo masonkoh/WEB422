@@ -16,8 +16,10 @@ import {EmployeeService} from './data/employee.service';
 import {PositionService} from './data/position.service';
 
 import { HttpClientModule } from '@angular/common/http';
-import { EmployeeComponentComponent } from './employee-component/employee-component.component';
-import { PositionComponentComponent } from './position-component/position-component.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { PositionComponent } from './position/position.component';
+// import { EmployeeComponentComponent } from './employee-component/employee-component.component';
+// import { PositionComponentComponent } from './position-component/position-component.component';
 
 
 @NgModule({
@@ -30,8 +32,10 @@ import { PositionComponentComponent } from './position-component/position-compon
     EmployeesComponent,
     PositionsComponent,
     PageNotFoundComponent,
-    EmployeeComponentComponent,
-    PositionComponentComponent
+    EmployeeComponent,
+    PositionComponent,
+    // EmployeeComponentComponent,
+    // PositionComponentComponent
   ],
   imports: [
     BrowserModule,
