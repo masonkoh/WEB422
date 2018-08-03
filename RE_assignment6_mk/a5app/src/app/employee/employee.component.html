@@ -5,18 +5,20 @@
 <div class="container">
 <div class="row">
 <div class="col-md-12">
-  <form>
+  <form #f='ngForm' (ngSubmit)='onSubmit(f)'>
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
           <label for="FirstName">First Name:</label>
-          <input class="form-control" id="FirstName" type="text"  name="FirstName" />
+          <input #FirstName="ngModel" placeholder="First Name" class="form-control" id="FirstName" type="text"  name="FirstName" required [(ngModel)]="employee.FirstName"/>
+
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
           <label for="LastName">Last Name:</label>
-          <input class="form-control" id="LastName" type="text" name="LastName" />
+          <input #LastName="ngModel" placeholder="Last Name" class="form-control" id="LastName" type="text" name="LastName" required [(ngModel)]="employee.LastName"/>
+
         </div>
       </div>
     </div>
@@ -25,9 +27,15 @@
         <div class="form-group">
           <label for="Position">Position:</label>
           <select class="form-control" id="Position"  name="Position">
+            
+            <option *ngFor="let position of positions" [value]="position._id">{{position.PositionName}}</option>
+
+            
+<!--             
             <option>Position One</option>
             <option>Position Two</option>
-            <option>Position Three</option>
+            <option>Position Three</option> -->
+
           </select>
         </div>
       </div>
@@ -36,7 +44,8 @@
           <label for="SalaryBonus">Salary Bonus</label>
           <div class="input-group">
             <span class="input-group-addon">$</span>
-            <input class="form-control" id="SalaryBonus" type="text" name="SalaryBonus" />
+            <input #SalaryBonus="ngModel" placeholder="Salary Bonus" class="form-control" id="SalaryBonus" type="number" name="SalaryBonus" required [(ngModel)]="employee.SalaryBonus"/>
+
           </div>
         </div>
       </div>
@@ -45,25 +54,29 @@
       <div class="col-md-3">
         <div class="form-group">
           <label for="AddressStreet">Address (Street):</label>
-          <input class="form-control" id="AddressStreet" type="text" name="AddressStreet" />
+          <input #AddressStreet="ngModel" placeholder="Address Street" class="form-control" id="AddressStreet" type="text" name="AddressStreet" required [(ngModel)]="employee.AddressStreet"/>
+
         </div>
       </div>
       <div class="col-md-3">
         <div class="form-group">
           <label for="AddressCity">Address (City):</label>
-          <input class="form-control" id="AddressCity" type="text" name="AddressCity" />
+          <input #AddressCity="ngModel" placeholder="Address City" class="form-control" id="AddressCity" type="text" name="AddressCity" required [(ngModel)]="employee.AddressCity"/>
+
         </div>
       </div>
       <div class="col-md-3">
         <div class="form-group">
           <label for="AddressState">Address (State):</label>
-          <input class="form-control" id="AddressState" type="text" name="AddressState" />
+          <input #AddressState="ngModel" placeholder="Address State"  class="form-control" id="AddressState" type="text" name="AddressState" required [(ngModel)]="employee.AddressState"/>
+
         </div>
       </div>
       <div class="col-md-3">
         <div class="form-group">
           <label for="AddressZip">Address (Zip Code):</label>
-          <input class="form-control" id="AddressZip" type="text" name="AddressZip" />
+          <input #AddressZip="ngModel" placeholder="Address Zip"  class="form-control" id="AddressZip" type="text" name="AddressZip" required [(ngModel)]="employee.AddressZip"/>
+
         </div>
       </div>
     </div>
@@ -71,19 +84,23 @@
       <div class="col-md-3">
         <div class="form-group">
           <label for="PhoneNum">Phone Number:</label>
-          <input class="form-control" id="PhoneNum" type="text" name="PhoneNum" />
+          <input #PhoneNum="ngModel" placeholder="0-(000)000-0000"  class="form-control" id="PhoneNum" type="text" name="PhoneNum" required pattern="\+?[ ]*[1-9]?[ ]*\-?[ ]*\(?[ ]*[1-9][ ]*(\d[ ]*){2}\)?[ ]*\-?[ ]*(\d[ ]*){3}-[ ]*(\d[ ]*){4}" [(ngModel)]="employee.PhoneNum"/>
+
         </div>
       </div>
       <div class="col-md-3">
         <div class="form-group">
           <label for="Extension">Extension:</label>
-          <input class="form-control" id="Extension" type="text" name="Extension" />
+          <input #Extension="ngModel" placeholder="Extension" class="form-control" id="Extension" type="number" name="Extension" required [(ngModel)]="employee.Extension" />
+
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
           <label for="HireDate">Hire Date:</label>
           <input class="form-control" id="HireDate" name="HireDate" type="text" value="HireDate" readonly />
+          <!-- <input #HireDate="ngModel" placeholder="Hire Date" class="form-control" id="HireDate" name="HireDate" type="text" [value]="employee.HireDate | amDateFormat:'LL'" readonly > -->
+
         </div>
       </div>
     </div>
@@ -96,11 +113,23 @@
 </div>
 </div>
 <br />
+<div class="alert alert-success" *ngIf="successMessage">
+  <strong>Success!</strong> Employee information was successfully updated.
+</div>
+<!-- 
 <div class="alert alert-success">
   <strong>Success!</strong> First Name Last Name's information was successfully saved.
-</div>
-<div class="alert alert-danger">
+</div> -->
+
+<div class="alert alert-danger" *ngIf="failMessage">
   <strong>Error!</strong> First Name Last Name's information could not be saved.
 </div>
+
+<!-- 
+<div class="alert alert-danger">
+  <strong>Error!</strong> First Name Last Name's information could not be saved.
+</div> -->
+
+
 </div>
 <br /><br />
