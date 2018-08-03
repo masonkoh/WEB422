@@ -20,6 +20,8 @@ import { EmployeeComponent } from './employee/employee.component';
 import { PositionComponent } from './position/position.component';
 // import { EmployeeComponentComponent } from './employee-component/employee-component.component';
 // import { PositionComponentComponent } from './position-component/position-component.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -40,7 +42,8 @@ import { PositionComponent } from './position/position.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [EmployeeService, PositionService],
   bootstrap: [AppComponent]
