@@ -7,6 +7,8 @@ import { PositionsComponent } from "./positions/positions.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 import { EmployeeComponent } from './employee/employee.component';
+import { PositionComponent } from './position/position.component';
+
 
 
 const routes: Routes = [
@@ -14,6 +16,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'employees', component: EmployeesComponent },
   { path: 'employee/:_id', component: EmployeeComponent },
+  { path: 'position/:_id', component: PositionComponent },
 
   { path: 'positions', component: PositionsComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },

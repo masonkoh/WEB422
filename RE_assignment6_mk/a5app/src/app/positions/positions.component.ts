@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Position } from '../data/position';
 import { PositionService } from '../data/position.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -14,7 +16,7 @@ export class PositionsComponent implements OnInit {
    private getPositionsSub: any;
    loadingError:boolean = false;
 
-  constructor(private positionService: PositionService) { }
+  constructor(private positionService: PositionService, private route : Router) { }
 
   ngOnInit() {
 
@@ -23,6 +25,10 @@ export class PositionsComponent implements OnInit {
     }, error => {
       this.loadingError = true;
     });
+  }
+
+  routePosition(id: string){
+    this.route.navigate(["/position", id]);
   }
 
   ngOnDestroy(){
