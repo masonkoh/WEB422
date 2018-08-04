@@ -8,100 +8,142 @@
   <form #f='ngForm' (ngSubmit)='onSubmit(f)'>
     <div class="row">
       <div class="col-md-6">
-        <div class="form-group">
+          <div class="form-group" [class.has-error]="FirstName.errors">
+              <label class="control-label" for="FirstName">First Name:<span *ngIf="FirstName.errors && FirstName.errors.required" class="glyphicon glyphicon-exclamation-sign" data-content="First&nbsp;Name&nbsp;is&nbsp;Required" data-placement="right" data-toggle="popover" data-trigger="focus"></span></label>
+              <input #FirstName="ngModel" placeholder="First Name" class="form-control" id="FirstName" type="text"  name="FirstName" required [(ngModel)]="employee.FirstName"/>
+            </div>
+        <!-- <div class="form-group" [class.has-error]="FirstName.errors">
           <label class="control-label" for="FirstName">First Name:</label>
           <input #FirstName="ngModel" placeholder="First Name" class="form-control" id="FirstName" type="text"  name="FirstName" required [(ngModel)]="employee.FirstName"/>
 
-        </div>
+        </div> -->
       </div>
       <div class="col-md-6">
-        <div class="form-group">
+          <div class="form-group" [class.has-error]="LastName.errors">
+              <label class="control-label" for="LastName">Last Name:<span *ngIf="LastName.errors && LastName.errors.required" class="glyphicon glyphicon-exclamation-sign" data-content="Last&nbsp;Name&nbsp;is&nbsp;Required" data-placement="right" data-toggle="popover" data-trigger="focus"></span></label>
+              <input #LastName="ngModel" placeholder="Last Name" class="form-control" id="LastName" type="text" name="LastName" required [(ngModel)]="employee.LastName"/>
+            </div>
+        <!-- <div class="form-group">
           <label class="control-label" for="LastName">Last Name:</label>
           <input #LastName="ngModel" placeholder="Last Name" class="form-control" id="LastName" type="text" name="LastName" required [(ngModel)]="employee.LastName"/>
 
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <label class="control-label" for="Position">Position:</label>
+            <label class="control-label" for="Position">Position:</label>
+            <select class="form-control" id="Position"  name="Position" [(ngModel)]="employee.Position">
+              <option *ngFor="let position of positions" [value]="position._id">{{position.PositionName}}</option>
+            </select>
+          <!-- <label class="control-label" for="Position">Position:</label>
           <select class="form-control" id="Position"  name="Position">
             
             <option *ngFor="let position of positions" [value]="position._id">{{position.PositionName}}</option>
 
-            
-<!--             
-            <option>Position One</option>
-            <option>Position Two</option>
-            <option>Position Three</option> -->
-
-          </select>
+          </select> -->
         </div>
       </div>
       <div class="col-md-6">
-        <div class="form-group">
+
+          <div class="form-group" [class.has-error]="SalaryBonus.errors">
+              <label class="control-label" for="SalaryBonus">Salary Bonus:<span *ngIf="SalaryBonus.errors && SalaryBonus.errors.required" class="glyphicon glyphicon-exclamation-sign" data-content="Salary&nbsp;Bonus&nbsp;is&nbsp;Required" data-placement="right" data-toggle="popover" data-trigger="focus"></span></label>
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input #SalaryBonus="ngModel" placeholder="Salary Bonus" class="form-control" id="SalaryBonus" type="number" name="SalaryBonus" required [(ngModel)]="employee.SalaryBonus"/>
+              </div>
+            </div>
+        <!-- <div class="form-group">
+
           <label class="control-label" for="SalaryBonus">Salary Bonus</label>
           <div class="input-group">
             <span class="input-group-addon">$</span>
             <input #SalaryBonus="ngModel" placeholder="Salary Bonus" class="form-control" id="SalaryBonus" type="number" name="SalaryBonus" required [(ngModel)]="employee.SalaryBonus"/>
 
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="row">
       <div class="col-md-3">
-        <div class="form-group">
+          <div class="form-group" [class.has-error]="AddressStreet.errors">
+              <label class="control-label" for="AddressStreet">Address (Street):<span *ngIf="AddressStreet.errors && AddressStreet.errors.required" class="glyphicon glyphicon-exclamation-sign" data-content="Address&nbsp;is&nbsp;Required" data-placement="right" data-toggle="popover" data-trigger="focus"></span></label>
+              <input #AddressStreet="ngModel" placeholder="Address Street" class="form-control" id="AddressStreet" type="text" name="AddressStreet" required [(ngModel)]="employee.AddressStreet"/>
+            </div>
+
+        <!-- <div class="form-group">
           <label class="control-label" for="AddressStreet">Address (Street):</label>
           <input #AddressStreet="ngModel" placeholder="Address Street" class="form-control" id="AddressStreet" type="text" name="AddressStreet" required [(ngModel)]="employee.AddressStreet"/>
 
-        </div>
+        </div> -->
       </div>
       <div class="col-md-3">
-        <div class="form-group">
+          <div class="form-group" [class.has-error]="AddressCity.errors">
+              <label class="control-label" for="AddressCity">Address (City):<span *ngIf="AddressCity.errors && AddressCity.errors.required" class="glyphicon glyphicon-exclamation-sign" data-content="City&nbsp;is&nbsp;Required" data-placement="right" data-toggle="popover" data-trigger="focus"></span></label>
+              <input #AddressCity="ngModel" placeholder="Address City" class="form-control" id="AddressCity" type="text" name="AddressCity" required [(ngModel)]="employee.AddressCity"/>
+            </div>
+        <!-- <div class="form-group">
           <label class="control-label" for="AddressCity">Address (City):</label>
           <input #AddressCity="ngModel" placeholder="Address City" class="form-control" id="AddressCity" type="text" name="AddressCity" required [(ngModel)]="employee.AddressCity"/>
 
-        </div>
+        </div> -->
       </div>
       <div class="col-md-3">
-        <div class="form-group">
+          <div class="form-group" [class.has-error]="AddressState.errors">
+              <label class="control-label" for="AddressState">Address (State):<span *ngIf="AddressState.errors && AddressState.errors.required" class="glyphicon glyphicon-exclamation-sign" data-content="State&nbsp;is&nbsp;Required" data-placement="right" data-toggle="popover" data-trigger="focus"></span></label>
+              <input #AddressState="ngModel" placeholder="Address State"  class="form-control" id="AddressState" type="text" name="AddressState" required [(ngModel)]="employee.AddressState"/>
+            </div>
+        <!-- <div class="form-group">
           <label class="control-label" for="AddressState">Address (State):</label>
           <input #AddressState="ngModel" placeholder="Address State"  class="form-control" id="AddressState" type="text" name="AddressState" required [(ngModel)]="employee.AddressState"/>
 
-        </div>
+        </div> -->
       </div>
       <div class="col-md-3">
-        <div class="form-group">
+          <div class="form-group" [class.has-error]="AddressZip.errors">
+              <label class="control-label" for="AddressZip">Address (Zip Code):<span *ngIf="AddressZip.errors && AddressZip.errors.required" class="glyphicon glyphicon-exclamation-sign" data-content="Zip&nbsp;Code&nbsp;is&nbsp;Required" data-placement="right" data-toggle="popover" data-trigger="focus"></span></label>
+              <input #AddressZip="ngModel" placeholder="Address Zip"  class="form-control" id="AddressZip" type="text" name="AddressZip" required [(ngModel)]="employee.AddressZip"/>
+            </div>
+        <!-- <div class="form-group">
           <label class="control-label" for="AddressZip">Address (Zip Code):</label>
           <input #AddressZip="ngModel" placeholder="Address Zip"  class="form-control" id="AddressZip" type="text" name="AddressZip" required [(ngModel)]="employee.AddressZip"/>
 
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="row">
       <div class="col-md-3">
-        <div class="form-group">
+          <div class="form-group" [class.has-error]="PhoneNum.errors">
+              <label class="control-label" for="PhoneNum">Phone Number:<span *ngIf="PhoneNum.errors && PhoneNum.errors.pattern" class="glyphicon glyphicon-exclamation-sign" data-content="Phone&nbsp;Number&nbsp;is&nbsp;Not&nbsp;Valid" data-placement="right" data-toggle="popover" data-trigger="focus"></span></label>
+              <input #PhoneNum="ngModel" placeholder="0-(000)000-0000"  class="form-control" id="PhoneNum" type="text" name="PhoneNum" required pattern="\+?[ ]*[1-9]?[ ]*\-?[ ]*\(?[ ]*[1-9][ ]*(\d[ ]*){2}\)?[ ]*\-?[ ]*(\d[ ]*){3}-[ ]*(\d[ ]*){4}" [(ngModel)]="employee.PhoneNum"/>
+            </div>
+        <!-- <div class="form-group">
           <label class="control-label" for="PhoneNum">Phone Number:</label>
           <input #PhoneNum="ngModel" placeholder="0-(000)000-0000"  class="form-control" id="PhoneNum" type="text" name="PhoneNum" required pattern="\+?[ ]*[1-9]?[ ]*\-?[ ]*\(?[ ]*[1-9][ ]*(\d[ ]*){2}\)?[ ]*\-?[ ]*(\d[ ]*){3}-[ ]*(\d[ ]*){4}" [(ngModel)]="employee.PhoneNum"/>
 
-        </div>
+        </div> -->
       </div>
       <div class="col-md-3">
-        <div class="form-group">
+          <div class="form-group" [class.has-error]="Extension.errors">
+              <label class="control-label" for="Extension">Extension:<span *ngIf="Extension.errors && Extension.errors.required" class="glyphicon glyphicon-exclamation-sign" data-content="Extension&nbsp;is&nbsp;Required" data-placement="right" data-toggle="popover" data-trigger="focus"></span></label>
+              <input #Extension="ngModel" placeholder="Extension" class="form-control" id="Extension" type="number" name="Extension" required [(ngModel)]="employee.Extension" />
+            </div>
+        <!-- <div class="form-group">
           <label class="control-label" for="Extension">Extension:</label>
           <input #Extension="ngModel" placeholder="Extension" class="form-control" id="Extension" type="number" name="Extension" required [(ngModel)]="employee.Extension" />
 
-        </div>
+        </div> -->
       </div>
       <div class="col-md-6">
-        <div class="form-group">
+
+
+          <div class="form-group">
           <label class="control-label" for="HireDate">Hire Date:</label>
           <input class="form-control" id="HireDate" name="HireDate" type="text" value="HireDate" readonly />
-          <!-- <input #HireDate="ngModel" placeholder="Hire Date" class="form-control" id="HireDate" name="HireDate" type="text" [value]="employee.HireDate | amDateFormat:'LL'" readonly > -->
 
-        </div>
+        </div> 
+        
       </div>
     </div>
     <hr />
