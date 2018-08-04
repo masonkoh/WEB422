@@ -17,7 +17,7 @@ export class EmployeeComponent implements OnInit, OnDestroy {
   // private getPositionsSubcription: any;
   private getPositionsSub: any;
   private saveEmployeeSubscription: any;
-  private employee: EmployeeRaw;
+  private employee: EmployeeRaw; // instruction wants me to fix it to non-private but it works. so i will keep it private anyways
   private positions: Position[];
   private successMessage = false;
   private failMessage = false;

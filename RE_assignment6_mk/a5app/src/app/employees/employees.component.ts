@@ -14,15 +14,24 @@ export class EmployeesComponent implements OnInit {
   employees: Employee[];
   private getEmployeesSub: any;
   loadingError: boolean = false;
+  filteredEmployees : Employee[];
+
 
   constructor(
     private employeeService: EmployeeService,
-    private router: Router
-  ) { }
+    private router: Router,
+    
+  ) { 
+    this.employees = [];
+    this.filteredEmployees = [];
+
+  }
 
   ngOnInit() {
-    this.getEmployeesSub = this.employeeService.getEmployees().subscribe(data => {
-      this.employees = data;
+    this.getEmployeesSub = this.employeeService.getEmployees().subscribe((employees) => {
+      this.employees = employees;
+      this.filteredEmployees = employees;
+
     }, error => {
       this.loadingError = true;
     });
@@ -31,6 +40,11 @@ export class EmployeesComponent implements OnInit {
 
   routeEmployee(id: string) {
     this.router.navigate(["/employee", id]);
+  }
+
+  onEmployeeSearchKeyUp(event: any){    
+    let substring : string = event.target.value.toLowerCase();
+    this.filteredEmployees = this.employees.filter((e) => ((e.FirstName.toLowerCase().indexOf(substring) !== -1 ) || (e.LastName.toLowerCase().indexOf(substring) !== -1)))
   }
 
   ngOnDestroy() {
