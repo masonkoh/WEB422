@@ -14,7 +14,7 @@ let employeesModel = [];
 
 function initializeEmployeesModel(){
     $.ajax({
-        url: "http://localhost:8081/employees",
+        url: "https://nameless-harbor-59273.herokuapp.com/employees",
         type:"GET",
         contentType: "application/json"
     }).done(function(data) {
